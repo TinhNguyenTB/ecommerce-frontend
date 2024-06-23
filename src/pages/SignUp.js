@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { IoEye, IoEyeOff } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import signUpIcon from '@Assets/signin.gif'
 import imageToBase64 from '@Utils/imageToBase64';
+import SummaryApi from '@Common';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const navigate = useNavigate();
 
     const [data, setData] = useState({
         name: "",
@@ -15,6 +18,7 @@ const SignUp = () => {
         confirmPassword: "",
         profilePic: ""
     });
+
     const handleOnchange = (e) => {
         const { name, value } = e.target;
         setData((prev) => {
@@ -36,8 +40,28 @@ const SignUp = () => {
         })
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (data.password === data.confirmPassword) {
+            const res = await fetch(SummaryApi.signUp.url, {
+                method: SummaryApi.signUp.method,
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            const dataRes = await res.json();
+            if (dataRes && dataRes.success === true) {
+                toast.success(dataRes.message);
+                navigate("/login");
+            }
+            if (dataRes && dataRes.error === true) {
+                toast.error(dataRes.message);
+            }
+        }
+        else {
+            toast.error("Please check password and confirm password")
+        }
     }
 
     return (
