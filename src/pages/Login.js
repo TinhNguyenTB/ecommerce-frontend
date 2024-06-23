@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { FaUserAstronaut } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { url } from '@Utils/constant';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -62,7 +63,7 @@ const Login = () => {
                                     </span>
                                 </div>
                             </div>
-                            <Link to={'/forgot-password'} className='w-fit block ml-auto hover:underline hover:text-red-600 transition-all'>
+                            <Link to={url.FORGOT_PASSWORD} className='w-fit block ml-auto hover:underline hover:text-red-600 transition-all'>
                                 Forgot password ?
                             </Link>
                         </div>
@@ -71,7 +72,7 @@ const Login = () => {
                         </button>
                     </form>
                     <p className='my-4 mx-auto w-fit'>
-                        Don't have an account ? <Link to={"/sign-up"} className='text-red-500 hover:underline hover:text-red-600 transition-all'>Sign up</Link>
+                        Don't have an account ? <Link to={url.SIGN_UP} className='text-red-500 hover:underline hover:text-red-600 transition-all'>Sign up</Link>
                     </p>
                 </div>
             </div>

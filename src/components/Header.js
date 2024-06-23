@@ -4,13 +4,14 @@ import { GrSearch } from "react-icons/gr";
 import { FaUserCircle } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { url } from '@Utils/constant';
 
 const Header = () => {
     return (
         <header className='h-16 shadow-md bg-white'>
             <div className='h-full container mx-auto flex items-center px-6 justify-between'>
                 <div>
-                    <Link to={"/"}>
+                    <Link to={url.HOME}>
                         <Logo w={50} h={50} />
                     </Link>
                 </div>
@@ -36,7 +37,7 @@ const Header = () => {
                         </div>
                     </div>
                     <div>
-                        <Link to={"/login"} className='px-3 py-1 rounded-full bg-red-500 text-white hover:bg-red-600'>
+                        <Link to={url.LOGIN} className='px-3 py-1 rounded-full bg-red-500 text-white hover:bg-red-600'>
                             Login
                         </Link>
                     </div>

@@ -3,8 +3,9 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 import { Link, useNavigate } from 'react-router-dom';
 import signUpIcon from '@Assets/signin.gif'
 import imageToBase64 from '@Utils/imageToBase64';
-import SummaryApi from '@Common';
+import SummaryApi from '@Common/index';
 import { toast } from 'react-toastify';
+import { url } from '@Utils/constant';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -53,7 +54,7 @@ const SignUp = () => {
             const dataRes = await res.json();
             if (dataRes && dataRes.success === true) {
                 toast.success(dataRes.message);
-                navigate("/login");
+                navigate(url.LOGIN);
             }
             if (dataRes && dataRes.error === true) {
                 toast.error(dataRes.message);
@@ -153,7 +154,7 @@ const SignUp = () => {
                         </button>
                     </form>
                     <p className='my-4 mx-auto w-fit'>
-                        Already have account ? <Link to={"/login"} className='text-red-500 hover:underline hover:text-red-600 transition-all'>Login</Link>
+                        Already have account ? <Link to={url.LOGIN} className='text-red-500 hover:underline hover:text-red-600 transition-all'>Login</Link>
                     </p>
                 </div>
             </div>

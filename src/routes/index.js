@@ -4,6 +4,7 @@ import Home from "@Pages/Home";
 import Login from "@Pages/Login";
 import ForgotPassword from "@Pages/ForgotPassword";
 import SignUp from "@Pages/SignUp";
+import { url } from "@Utils/constant";
 
 const router = createBrowserRouter([
     {
@@ -11,19 +12,19 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                path: "/",
+                path: url.HOME,
                 element: <Home />
             },
             {
-                path: "/login",
+                path: url.LOGIN,
                 element: <Login />
             },
             {
-                path: "/forgot-password",
+                path: url.FORGOT_PASSWORD,
                 element: <ForgotPassword />
             },
             {
-                path: "/sign-up",
+                path: url.SIGN_UP,
                 element: <SignUp />
             }
         ]
