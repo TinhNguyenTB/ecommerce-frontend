@@ -7,6 +7,10 @@ const SummaryApi = {
     login: {
         url: `${process.env.REACT_APP_BACKEND_URL}/api/login`,
         method: 'POST'
+    },
+    account: {
+        url: `${process.env.REACT_APP_BACKEND_URL}/api/account`,
+        method: 'GET'
     }
 }
 

@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { FaUserAstronaut } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { url } from '@/utils/constant';
 import SummaryApi from '@/common';
 import { toast } from 'react-toastify';
+import Context from '@/context';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    const { fetchUserAccount } = useContext(Context);
 
     const [data, setData] = useState({
         email: "",
@@ -38,6 +40,7 @@ const Login = () => {
         const dataRes = await res.json();
         if (dataRes && dataRes.success === true) {
             toast.success(dataRes.message);
+            fetchUserAccount();
             navigate(url.HOME);
         }
         if (dataRes && dataRes.error === true) {
