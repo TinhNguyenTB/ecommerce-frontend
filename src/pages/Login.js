@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { FaUserAstronaut } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { url } from '@/utils/constant';
+import SummaryApi from '@/common';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+
     const [data, setData] = useState({
         email: "",
         password: ""
@@ -20,8 +24,25 @@ const Login = () => {
         });
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const res = await fetch(SummaryApi.login.url, {
+            method: SummaryApi.login.method,
+            credentials: 'include',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+        const dataRes = await res.json();
+        if (dataRes && dataRes.success === true) {
+            toast.success(dataRes.message);
+            navigate(url.HOME);
+        }
+        if (dataRes && dataRes.error === true) {
+            toast.error(dataRes.message);
+        }
     }
 
     return (
