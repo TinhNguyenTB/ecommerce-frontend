@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { FaUserAstronaut } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { url } from '@Utils/constant';
+import { url } from '@/utils/constant';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);

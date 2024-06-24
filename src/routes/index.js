@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from '@/App'
-import Home from "@Pages/Home";
-import Login from "@Pages/Login";
-import ForgotPassword from "@Pages/ForgotPassword";
-import SignUp from "@Pages/SignUp";
-import { url } from "@Utils/constant";
+import Home from "@/pages/Home";
+import Login from "@/pages/Login";
+import ForgotPassword from "@/pages/ForgotPassword";
+import SignUp from "@/pages/SignUp";
+import { url } from "@/utils/constant";
 
 const router = createBrowserRouter([
     {

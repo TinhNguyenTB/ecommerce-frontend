@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { Link, useNavigate } from 'react-router-dom';
-import signUpIcon from '@Assets/signin.gif'
-import imageToBase64 from '@Utils/imageToBase64';
-import SummaryApi from '@Common/index';
+import signUpIcon from '@/assets/signin.gif'
+import imageToBase64 from '@/utils/imageToBase64';
+import SummaryApi from '@/common/index';
 import { toast } from 'react-toastify';
-import { url } from '@Utils/constant';
+import { url } from '@/utils/constant';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);

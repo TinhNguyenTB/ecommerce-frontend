@@ -1,10 +1,10 @@
 import React from 'react'
-import Logo from '@Components/Logo'
+import Logo from '@/components/Logo'
 import { GrSearch } from "react-icons/gr";
 import { FaUserCircle } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import { url } from '@Utils/constant';
+import { url } from '@/utils/constant';
 
 const Header = () => {
     return (
